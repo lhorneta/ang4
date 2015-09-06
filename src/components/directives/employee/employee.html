@@ -1,0 +1,17 @@
+<td>{{employee.fName}}</td>
+<td><input type="checkbox" ng-click="update()" ng-model="employee.fPower" id="lbl-02" class="form-control"/></td>
+<td><input type="checkbox" ng-click="update()" ng-model="employee.frich" id="lbl-03" class="form-control"/></td>
+<td><input type="checkbox" ng-click="update()" ng-model="employee.fgenius" id="lbl-04" class="form-control"/></td>
+<td>
+	<div class="delete">
+		<a class="btn" href="#" role="button" ng-hide="disabledIndex === index" ng-click="remove(index)">
+			<span  class="glyphicon glyphicon-remove"></span>
+		</a>
+
+		<span ng-show="disabledIndex === index">
+		  Are you sure?
+		  <span class="btn btn-success" ng-mouseup="removeConfirm()">Yes</span>
+		  <span class="btn btn-danger" ng-click="noDelete()" ui-sref="home">No</span>
+		</span>
+	</div>
+</td>

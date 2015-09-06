@@ -1,0 +1,9 @@
+<div class="col-lg-3 custom_sidebar">
+		<h2>Sidebar</h2>
+		<h3><a ui-sref='home'>Total Persons:</a> {{totalPersons}}</h3>
+		<div ng-if="isEmpty()">
+			<p><span ng-show="isActive('power')">With super power: </span><a ng-hide="isActive('power')" ui-sref='power'>With super power: </a>{{countFilters('fPower')}}</p>
+			<p><span ng-show="isActive('rich')">Rich: </span><a ng-hide="isActive('rich')" ui-sref='rich'>Rich: </a>{{countFilters('frich')}}</span></p>
+			<p><span ng-show="isActive('genius')">Genius: </span><a ng-hide="isActive('genius')" ui-sref='genius'>Genius: </a>{{countFilters('fgenius')}}</span></p>
+		</div>
+	</div>

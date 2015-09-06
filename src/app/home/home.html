@@ -1,0 +1,54 @@
+<div class="container">
+  <header>
+    <h1>List of employeers</h1>
+  </header>
+</div>
+
+<div class="col-lg-9 custom_sidebar_main">
+
+	<div class="col-xs-7">
+		<form ng-submit="addUser()"  class="custom_form" >
+		  <fieldset>
+			<input type="text" ng-model="form.firstName" class="custom_input" placeholder="Name" id="lbl-01"/>
+			<input type="checkbox" ng-checked="isActive('power')" ng-model="form.superPower" id="lbl-02"/><label for="lbl-02">Super Power</label>
+			<input type="checkbox" ng-checked="isActive('rich')" ng-model="form.rich" id="lbl-03"/><label for="lbl-03">Rich</label>
+			<input type="checkbox" ng-checked="isActive('genius')" ng-model="form.genius" id="lbl-03"/><label for="lbl-03">Genius</label>
+			<input type="submit" class="btn btn-lg btn-success" value="Save"/>
+		   </fieldset>
+		</form>
+	</div>
+
+	<div class="show_table" ng-if="isEmpty()">
+
+	
+		<table ng-table="tableParams" class="table">
+			<tr 
+				employee="employee"
+				ng-repeat="employee in employees | filter : customFilter()"
+				on-update="employeeUpdate"
+				on-remove="employeeRemove"
+				disabled-index="obj.disabledIndex"
+				index="$index"
+			>
+				<td data-title="'Name'" sortable="'fName'"></td>
+				<td data-title="'Power'" sortable="'fPower'"></td>
+				<td data-title="'Rich'" sortable="'frich'"></td>
+				<td data-title="'Genius'" sortable="'fgenius'"></td>
+				<td data-title="'Delete'"></td>
+			</tr>
+
+		</table>
+		
+		<div>
+			<span ng-show="notEmptyFPower('power')">Super Power</span>
+			<a ng-hide="notEmptyFPower('power')" ui-sref='power'>Super Power</a> | 
+			<span ng-show="notEmptyFrich('rich')" >Rich</span>
+			<a ng-hide="notEmptyFrich('rich')" ui-sref='rich'>Rich</a> | 
+			<span ng-show="notEmptyFgenius('genius')">Genius</span>
+			<a ng-hide="notEmptyFgenius('genius')" ui-sref='genius'>Genius</a>
+		</div>
+		
+	</div>
+	
+	
+</div>
